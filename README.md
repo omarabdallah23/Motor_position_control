@@ -34,5 +34,7 @@ s * (J * s + b) * theta(s) = K * I(s) -> equ(1)
 from equ(1) and equ(2):
 
 theta(s) / V(s) = K / s * ((J * s + b)(L * s + R) + K^2)
-
+### Design requirments:
+We want the position of the DC motor to be very precise even when there is a constant disturbance so the steady state error must be zero. We also want the motor to reach the desired position very fast and without
+excessive overshoot so we can assume a settling time of 40ms and an overshoot of 16%.
 ## Analysis:
