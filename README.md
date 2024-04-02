@@ -15,5 +15,5 @@ Assume the following values for the physical parameters:
 6. Electric inductance (L) = 2.75E-6H
 The input is the voltage (V) while the output is the position (theta)
 ### System equations:
-T = $'Kt*i'$
-e = Kb*dtheta/dt
+T = Kt * i
+e = Kb * dtheta/dt
