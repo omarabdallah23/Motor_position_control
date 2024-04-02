@@ -16,13 +16,23 @@ Assume the following values for the physical parameters:
 The input is the voltage (V) while the output is the position (theta)
 ### System equations:
 T = Kt * i
+
 e = Kb * (dtheta/dt)
+
 Back emf and motor torque constants are equal so Kt = Kb = K
+
 From Newton's 2nd law -> J * (d^2theta/dt^2) + b * (dtheta/dt) = K * i
+
 From Kirchoff's law -> L * (di/dt) + R * i = V - K * (dtheta/dt)
+
 Applying laplace's transform:
+
 s * (J * s + b) * theta(s) = K * I(s) -> equ(1)
+
 (L * s + R) * I(s) = V(s) - K * s * theta(s) -> equ(2)
+
 from equ(1) and equ(2):
+
 theta(s) / V(s) = K / s * ((J * s + b)(L * s + R) + K^2)
+
 ## Analysis:
