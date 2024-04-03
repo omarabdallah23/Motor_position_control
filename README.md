@@ -38,3 +38,17 @@ theta(s) / V(s) = K / s * ((J * s + b)(L * s + R) + K^2)
 We want the position of the DC motor to be very precise even when there is a constant disturbance so the steady state error must be zero. We also want the motor to reach the desired position very fast and without
 excessive overshoot so we can assume a settling time of 40ms and an overshoot of 16%.
 ## Analysis:
+### Open-loop response:
+![open-loop_response](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/07e9b145-5760-4e34-bbd3-946429cccd75)
+
+We can see that when 1 volt is applied to the uncompensated system the system becomes unstable. One of the poles of the open-loop transfer function is on the imaginary axis while the other two are on the left -half of the s-complex plane. The pole of the imaginary axis indicates that the open-loop response is bounded, however, it can grow unbounded when an input is given.
+### Closed-loop response:
+![closed_loop_response](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/3a522440-95bc-4206-9815-19f0bdc09937)
+
+By creating a feedback and just with a controller of gain = 1, we can see the system becomes stable. There is no steady-state error and the overshoot is less than 16%, however, the settling time requirmnet of 40 ms is not met.
+
+![poles_and_zeros_map](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/a1404fc1-4d5a-4539-a745-d6fa259de240)
+
+Since the real pole is so much faster than the complex conjugate poles its effect on the dynamic response of the system will be minimal
+There are different approaches to design controllers but in this project i will use a discrete-controller in order to meet the settling-time requirment and a zero steady-state error even with the presence of a step disturbance.
+## Digital controller:
