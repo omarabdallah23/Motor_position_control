@@ -87,3 +87,30 @@ From the above figure, we can see that the two dominant branches do not pass the
 
 You must choose a gain to move the closed-loop pole location along the rootlocus in order to meet our requirments. I employed some trial and error and to assist me in this regard, I opened a plot for the closed-loop step response so that we can observe the effect of the gain changes on the actual step response. Move to the **IOTransfer_r2y:step** tab. click on the **New Plot** menu and under **Create New Plot**, choose **New Step**. From **Select Responses to Plot** menu choose **IOTransfer_r2y**. Then click on **Plot**. The closed-loop step response will then appear in the figure. The closed-loop response meets the settling-time requirment but not the overshoot requirment. Right-click on the closed-loop response, choose **Design requirments** and the specify the overshoot to be 16% and setlling time to be 0.04s. By a graphical tuning approach, grab one of the pink boxes on the root locus plot by clicking on it, then drag the box along the locus. You can see that the loop gain changes and the effect of the change can be seen on the closed-loop response. By trial and error, a loop gain meets the requirments.  
 ## SIMULINK model:
+I simulated the following equations on SIMULINK:
+
+d^2theta/dt^2 = (1/J) * (Kt * i - b * dtheta/dt)
+
+di/dt = (1/L) * (-R * i + V - Kb * dtheta/dt)
+
+![asgdadfh](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/ea3b190d-797f-42e2-ab10-86216bf7563f)
+
+You can also build this model in SIMSCAPE using the physical modeling blocks. The blocks in the Simscape library represent actual physical components; therefore, complex multi-domain models can be built without the need to build mathematical equations from physical principles as was done above by applying Newton's laws and Kirchoff's laws.
+
+![gnd](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/359b97a1-0380-417f-a097-2ee35c59d13f)
+
+The open-loop response:
+
+![open-loop_response_SIMULINK](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/7daab8e6-be41-446d-8ffb-f2a1afbb4548)
+
+The closed- loop response (without a constant disturbance):
+
+![adjgcs](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/749eb8ec-670d-4f58-b022-00f75f88109b)
+
+The zero-order hold between the controller and the plant transforms discrete-time signal into a step-wise constant continous signal. The zero-order hold at the output of the planr is used to take discrete samples of the output signal.
+
+The closed- loop response (with a constant disturbance at 0.03s):
+
+![dnxvxvsd](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/19d6df3d-c8ee-41e5-a22c-2ac02a31f200)
+
+We can see that there is a slight bump at 0.03s but the controller is able to reject its effect and the steady-state error remains zero as required.
