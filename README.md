@@ -4,6 +4,7 @@
 2. Analysis
 3. Digital controller
 4. SIMULINK modeling
+5. References
 ## Modeling:
 A common actuator in control systems is the DC motor. It directly provides rotary motion and, coupled with wheels or drums and cables, can provide translational motion.
 Assume the following values for the physical parameters:
@@ -115,3 +116,5 @@ The closed- loop response (with a constant disturbance at 0.03s):
 ![dnxvxvsd](https://github.com/omarabdallah23/Motor_position_control/assets/143711494/19d6df3d-c8ee-41e5-a22c-2ac02a31f200)
 
 We can see that there is a slight bump at 0.03s but the controller is able to reject its effect and the steady-state error remains zero as required.
+## Refrences:
+ https://ctms.engin.umich.edu/CTMS/index.php?aux=Home
