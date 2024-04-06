@@ -13,6 +13,7 @@ Assume the following values for the physical parameters:
 4. Motor torque constant (Kb) = 0.0274 N.m/Amp
 5. Electric resistance (R) = 4 Ohm
 6. Electric inductance (L) = 2.75E-6H
+   
 The input is the voltage (V) while the output is the position (theta)
 ### System equations:
 T = Kt * i
